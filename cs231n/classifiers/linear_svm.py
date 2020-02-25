@@ -85,9 +85,8 @@ def svm_loss_vectorized(W, X, y, reg):
     scores = scores - correct_score + 1
     
     scores[y, np.arange(num_train)] = 0
-    loss = np.sum(np.maximum(np.zeros(scores.shape), scores) # 0보다 큰 점수를 더해 저장
-                  
-    loss /= X.shape[0] # training sample 개수로 나눠주고 regularize
+    loss = np.sum(np.maximum(np.zeros(scores.shape), scores)
+    loss /= X.shape[0]
     loss += reg * np.sum(W * W)
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
